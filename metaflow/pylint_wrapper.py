@@ -3,7 +3,7 @@ import sys
 
 try:
     from StringIO import StringIO
-except:
+except Exception:
     from io import StringIO
 
 from .exception import MetaflowException
@@ -21,7 +21,7 @@ class PyLint(object):
             from pylint.lint import Run
 
             self._run = Run
-        except:
+        except Exception:
             self._run = None
 
     def has_pylint(self):
