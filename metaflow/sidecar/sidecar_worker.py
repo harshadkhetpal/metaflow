@@ -36,7 +36,7 @@ def process_messages(worker_type, worker):
             else:
                 break
 
-        except:  # todo handle other possible exceptions gracefully
+        except Exception:  # todo handle other possible exceptions gracefully
             print(
                 "[sidecar:%s]: %s" % (worker_type, traceback.format_exc()),
                 file=sys.stderr,
@@ -44,7 +44,7 @@ def process_messages(worker_type, worker):
             break
     try:
         worker.shutdown()
-    except:
+    except Exception:
         pass
 
 
