@@ -56,7 +56,7 @@ def save_logs():
 
         data = {stream: op(path) for stream, path, _ in sizes}
         task_datastore.save_logs(TASK_LOG_SOURCE, data)
-    except:
+    except Exception:
         # Upload failing is not considered a fatal error.
         # This script shouldn't return non-zero exit codes
         # for transient errors.
