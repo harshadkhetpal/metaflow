@@ -32,7 +32,7 @@ def setup_torch_distributed(master_port=None):
     # provided by the user.
     try:
         master_port = master_port or (51000 + abs(int(current.run_id)) % 10000)
-    except:
+    except Exception:
         # if `int()` fails, i.e. `run_id` is not an `int`, use just a constant port. Can't use `hash()`,
         # as that is not constant.
         master_port = 51001
